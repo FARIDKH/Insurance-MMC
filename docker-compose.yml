@@ -3,17 +3,17 @@ version: '3.7'
 # Define services
 services:
   # App backend service
-  server:
-    # Configuration for building the docker image for the backend service
+  app_server:
+  #   # Configuration for building the docker image for the backend service
 
     build:
       args :
         JAR_FILE: /build/libs/*.jar
-      context: ./insurance # Use an image built from the specified dockerfile in the `polling-app-server` directory.
+      context: ./insurance 
       dockerfile:
         Dockerfile
     ports:
-      - "8085:8085" 
+      - "8085:5432" 
     restart: always
     depends_on:
       - db # This service depends on mysql. Start that first.
@@ -23,20 +23,18 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     networks: # Networks to join (Services on the same network can communicate with each other using their name)
       - backend
-      - frontend
+      - nginx
 
-  # Frontend Service
-  client:
-    build:
-      context: ./insurance-mmc/insurance-mmc # Use an image built from the specified dockerfile in the `polling-app-client` directory.
-      dockerfile: Dockerfile
-    ports:
-      - "4200:80" # Map the exposed port 80 on the container to port 9090 on the host machine
+
+  # # Frontend Service
+  nginx:
+    build: ./insurance-mmc/insurance-mmc
     restart: always
-    depends_on:
-      - server
-    networks:
-      - frontend
+    ports:
+      - 5001:80
+    volumes:
+      - ./nginx.conf:/etc/nginx.conf:ro
+
 
   # Database Service (Mysql)
   db:
@@ -56,4 +54,4 @@ services:
 # Networks to be created to facilitate communication between containers
 networks:
   backend:
-  frontend:
+  nginx:
