@@ -1,0 +1,91 @@
+
+
+<div class="container" id="form">
+
+    <div  class="row">
+
+        <div class="col-12 form-info">
+            <h1>
+                Fərdi Qəza Sığortası
+            </h1>
+            <small>Zəhmət olmasa, aşağıdakı formu doldurun.</small>
+        </div>
+       
+
+        <div class="form-left-side col-3">
+            
+            <ul>
+                <li (click)="selectForm(1)" [ngClass]="{'form-name-selected': this.selectedFormNumber == 1}">
+                    Fərd haqqında məlumatlar
+                </li>
+                <li  (click)="selectForm(2)" [ngClass]="{'form-name-selected': this.selectedFormNumber == 2}">
+                    Sığorta şirkəti
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="form-right-side col-9">
+            
+
+            <div class="car-form-part" 
+             [ngClass]="{'form-selected': this.selectedFormNumber == 1}"
+             [ngClass]="{'form-not-selected': this.selectedFormNumber != 1}">
+                <small style="color: lightgray;">Mərhələ 1/2</small>
+
+                <form class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">Fərd</label>
+                        <input type="text" class="form-control" placeholder="Ad, soyad">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">Ş/V Nömrəsi</label>
+                        <input type="text" placeholder="AZE1234567" class="form-control" id="carRegistrationNumber" name="carRegistrationNumber">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">Ş/V Fin kodu</label>
+                        <input type="text" placeholder="1X3X5X7" class="form-control" id="carCertificateNumber" name="carRegistrationNumber">
+                    </div> 
+
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">E-mail</label>
+                        <input type="email" placeholder="example@gmail.com" class="form-control" id="carCertificateNumber" name="carRegistrationNumber">
+                    </div> 
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">Mobil nömrə</label>
+                        <input type="tel" placeholder="+994 11 222 33 44" class="form-control" id="engine" name="carRegistrationNumber">
+                    </div>  
+                </form>
+
+                <button (click)="proceedToNextForm()" class="btn btn-default">Davam et</button>
+            </div>
+
+            <div class="car-form-part"  
+            [ngClass]="{'form-selected': this.selectedFormNumber == 2}"
+            [ngClass]="{'form-not-selected': this.selectedFormNumber != 2}">
+                <small style="color: lightgray;">Mərhələ 2/2</small>
+
+                <form class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="insuranceCompany">Sığorta şirkəti seçin</label>
+                        <select type=""  class="form-control" id="insuranceCompany" name="insuranceCompany">
+                            <option value="1">Azərsığorta</option>
+                            <option value="2">Paşa bank</option>
+                            <option value="3">Atəşgah</option>
+                        </select>
+
+                    </div>
+ 
+                </form>
+
+                <button (click)="submitForm()" class="btn btn-default">Bitir</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

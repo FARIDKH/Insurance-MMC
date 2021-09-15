@@ -1,0 +1,146 @@
+
+<div id="overlay" [ngClass]="{'hidden': !this.formSubmitted}">
+    <div class="msg msg-alert z-depth-3"  >Sığorta uğurla yaradıldı!</div>
+</div>
+<div class="container" id="form">
+
+    <div  class="row">
+
+        <div class="col-12 form-info">
+            <h1>
+                İcbari əmlak sığortası
+            </h1>
+            <small>Zəhmət olmasa, aşağıdakı formu doldurun.</small>
+        </div>
+       
+
+        <div class="form-left-side col-3">
+            
+            <ul>
+                <li  [ngClass]="{'form-name-selected': this.selectedFormNumber == 1}">
+                    Əmlak məlumatları
+                </li>
+                <li  [ngClass]="{'form-name-selected': this.selectedFormNumber == 2}">
+                    Şəxsi məlumatlar
+                </li>
+                <li  [ngClass]="{'form-name-selected': this.selectedFormNumber == 3}">
+                    Sığorta şirkəti
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="form-right-side col-9">
+            <div  class="car-form-part"
+             [ngClass]="{'form-selected': this.selectedFormNumber == 1}" 
+             [ngClass]="{'form-not-selected': this.selectedFormNumber != 1}" >
+
+                <small style="color: lightgray;">Mərhələ 1/3</small>
+
+                <form  class="mb-3 row">
+                    <div class="col-3">
+                        <label for="property_type">Əmlak növü</label>
+                        <select [(ngModel)]="this.propertyInsurance.property_type" name="property_type" id="property_type" class="form-control">
+                            <option value="Ev">Ev</option>
+                            <option value="Mənzil">Mənzil</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3">
+                        <label for="city">Şəhər və ya rayon</label>
+                        <select [(ngModel)]="this.propertyInsurance.city" name="city" id="city" class="form-control">
+                            <option selected value="Baku">Baku</option>
+                            <option value="Gabala">Gabala</option>
+                            <option value="Nakhcivan">Nakhcivan</option>
+                        </select>
+                    </div> 
+                       
+                    <div class="col-3">
+                        <label for="ownership_doc">Mülkiyyət sənədi</label>
+                        <select [(ngModel)]="this.propertyInsurance.ownership_doc" name="ownership_doc" class="form-control" id="ownership_doc">
+                            <option value="0">Çıxarış</option>
+                            <option value="1">Digər</option>
+                        </select>    
+                    </div>   
+                    <div class="mb-3">
+                        <label for="post_index">Poçt indeksi</label>
+                        <input [(ngModel)]="this.propertyInsurance.post_index" type="text" placeholder="AZXXXX" class="form-control" name="post_index" id="post_index">
+                    </div>
+                    <div class="mb-3">
+                        <label for="series">Seriya</label>
+                        <input [(ngModel)]="this.propertyInsurance.series" type="text" placeholder="AZ" class="form-control" id="series" name="series">
+                    </div>  
+                    <div class="mb-3">
+                        <label for="number">No</label>
+                        <input [(ngModel)]="this.propertyInsurance.number" type="number" placeholder="1234567" class="form-control" id="number" name="number">
+                    </div>  
+                    <div class="mb-3">
+                        <label for="address">Ünvan</label>
+                        <input [(ngModel)]="this.propertyInsurance.address" type="text" placeholder="Ünvanı qeyd edin" class="form-control" id="address" name="address">
+                    </div>  
+                </form>
+
+                <button (click)="proceedToNextForm()" (click)="this.submitPropertyInsuranceForm()" class="btn btn-default">Davam et</button>
+
+            </div>
+
+            <div class="car-form-part" 
+             [ngClass]="{'form-selected': this.selectedFormNumber == 2}"
+             [ngClass]="{'form-not-selected': this.selectedFormNumber != 2}">
+                <small style="color: lightgray;">Mərhələ 2/3</small>
+
+                <form class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="id_number">Ş/V Nömrəsi</label>
+                        <input [(ngModel)]="this.client.id_number" type="text" placeholder="AZE1234567" class="form-control" id="id_number" name="id_number">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fin_code">Ş/V Fin kodu</label>
+                        <input [(ngModel)]="this.client.fin_code" type="text" placeholder="1X3X5X7" class="form-control" id="fin_code" name="fin_code">
+                    </div> 
+                    <label class="form-label" for="phone">Mobil nömrə</label>
+                    <div class="mb-3 input-group">
+                        
+
+                        <span class="input-group-text">+994</span>
+                        <input [(ngModel)]="this.client.phone" type="number" placeholder="512345678" class="form-control" id="phone" name="phone">
+                    </div>   
+                    <div class="mb-3">
+                        <label for="phone">E-mail</label>
+                        <input [(ngModel)]="this.client.email" type="email" placeholder="example@gmail.com" class="form-control" id="email" name="email">
+                    </div>  
+                </form>
+
+                <button
+                
+                [disabled]="!this.client.fin_code || !this.client.phone"
+                
+                (click)="proceedToNextForm()" (click)="this.submitClientForm()" class="btn btn-default">Davam et</button>
+            </div>
+
+            <div class="car-form-part"  
+            [ngClass]="{'form-selected': this.selectedFormNumber == 3}"
+            [ngClass]="{'form-not-selected': this.selectedFormNumber != 3}">
+                <small style="color: lightgray;">Mərhələ 3/3</small>
+
+                <form class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="insuranceCompany">Sığorta şirkəti seçin</label>
+                        <select [(ngModel)]="this.chosenInsuranceCompany" type=""  class="form-control" id="insuranceCompany" name="insuranceCompany">
+                            <option value="Azərsığorta">Azərsığorta</option>
+                        </select>
+
+                    </div>
+ 
+                </form>
+
+                <button [disabled]="!this.chosenInsuranceCompany" (click)="submitForm()" class="btn btn-default">Bitir</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

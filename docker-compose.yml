@@ -31,7 +31,7 @@ services:
 
   # # Frontend Service
   nginx:
-    build: ./insurance-mmc/insurance-mmc
+    build: ./insurance-mmc
     restart: always
     ports:
       - 4200:80

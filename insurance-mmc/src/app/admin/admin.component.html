@@ -1,0 +1,40 @@
+<header role="banner">
+    <h1>Admin Panel</h1>
+    <ul class="utilities">
+      <br>
+      <li class="users"><a href="#">Hesabım</a></li>
+      <li class="logout warn"><a href="">Çıxış</a></li>
+    </ul>
+  </header>
+  
+  <nav role='navigation'>
+    <ul class="main">
+      <li class="dashboard"><a >Ana səhifə</a></li>
+      <li class="edit"><a (click)="this.page=1">Saytda düzəlişlər</a></li>
+      <li class="write"><a (click)="this.page=0" routerLinkActive="router-link-active" >Sığortaların siyahıları</a></li>
+    </ul>
+  </nav>  
+
+  
+
+  
+  <main>
+    <div [ngSwitch]="this.page">
+      <div *ngSwitchCase="0">
+      
+        <app-offers-list [allOffers] = "this.allOffers"></app-offers-list>
+      </div>
+      <div *ngSwitchCase="1">
+      3123
+      </div>
+      <p *ngSwitchDefault>
+      
+      </p>
+    </div>
+      
+  </main>
+  
+  
+  
+  
+  

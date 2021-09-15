@@ -1,0 +1,41 @@
+
+@import "../../styles.scss";
+
+
+.feature {
+    margin:0 10px;
+    margin-top: 50px;
+    border: 2px solid $purpleBlue;
+    border-radius: 15px;
+    width: 400px;
+    .feature-info {
+        padding: 25px;
+    }
+    h2{
+        text-align: center;
+    }
+
+    a {
+        display: block;
+        text-align: center;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+
+    .feature-icon {
+        fa-icon{
+            color: white;
+            background-color: $purpleBlue ;
+            padding:15px  25px;
+            font-size: 24px;
+            border-radius: 20px;
+        }
+        text-align: center;
+    
+        margin-bottom: 25px;
+    }
+
+}

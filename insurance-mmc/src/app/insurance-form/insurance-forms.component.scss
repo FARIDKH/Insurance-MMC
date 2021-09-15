@@ -1,0 +1,128 @@
+
+   $green : #46EA6C;
+   $purpleBlue : #303F9F;
+
+.msg {
+    width:400px;
+    max-height: 300px;
+    // border: 1px solid;
+    padding:10px;
+    margin: 20px auto;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+#overlay, .msg {
+    transition: all 0.3s ease ;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+    }
+
+
+.msg-alert {
+    border-color: white;
+    background-color: $green;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#form {
+    margin: 50px auto;
+    padding: 50px;
+    background-color: $purpleBlue ;
+    color: white;
+
+    min-height: 700px;
+
+    transition: all 1s ease;
+
+    .form-name-selected {
+        color: $green !important;
+    }
+
+    .form-selected {
+        display: block;
+    }
+    
+    .form-not-selected {
+        display: none;
+    }
+    
+
+    .form-info {
+        margin-bottom: 50px;
+    }
+
+
+
+    .form-left-side  {
+        border-right:1px solid gray;
+        ul  {
+            list-style-type:  none;
+            margin: 0 15px 0 0;
+            padding: 0;
+            li {
+                color: white;
+                padding: 10px;
+                border-bottom: 1px solid lightblue;
+                margin-bottom: 10px;
+            }
+        }
+        
+    }
+    .form-right-side {
+        border-left: 1px solid gray;
+        label{
+            font-size: 15px;
+            margin-top: 15px;
+            color: lightgray;
+        }
+        input {
+            box-sizing: border-box;
+            background-color: transparent;
+            color: white;
+            padding: 10px;
+            border-radius: 15px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius:  0;
+            border: 2px solid lightgray;
+            transition: all 0.3s ease;
+            &::placeholder{
+                color: lightgray;
+                opacity: 0.7;
+            }
+            &:focus{
+                border:2px solid $green !important;
+                
+            }
+        }
+    }
+
+    button {
+        background-color: $green;
+        color: white;
+        width: 150px;
+        padding: 10px;
+        float: right;
+        border-radius: 25px;
+        transition: all 1s ease;
+    }
+}

@@ -1,0 +1,132 @@
+
+<div id="overlay" [ngClass]="{'hidden': !this.formSubmitted}">
+    <div class="msg msg-alert z-depth-3"  >Sığorta uğurla yaradıldı!</div>
+</div>
+<div class="container" id="form">
+
+    <div  class="row">
+
+        <div class="col-12 form-info">
+            <h1>
+                Daşınmaz Əmlakın İstismarı İlə Bağlı Məsuliyyətin İcbari sığortası
+            </h1>
+            <small>Zəhmət olmasa, aşağıdakı formu doldurun.</small>
+        </div>
+       
+
+        <div class="form-left-side col-3">
+            
+            <ul>
+                <li [ngClass]="{'form-name-selected': this.selectedFormNumber == 1}">
+                    Əmlak məlumatları
+                </li>
+                <li [ngClass]="{'form-name-selected': this.selectedFormNumber == 2}">
+                    Sahibi haqqında məlumatlar
+                </li>
+                <li  [ngClass]="{'form-name-selected': this.selectedFormNumber == 3}">
+                    Sığorta şirkəti
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="form-right-side col-9">
+            <div  class="car-form-part"
+             [ngClass]="{'form-selected': this.selectedFormNumber == 1}" 
+             [ngClass]="{'form-not-selected': this.selectedFormNumber != 1}" >
+
+                <small style="color: lightgray;">Mərhələ 1/3</small>
+
+                <form  class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="address">Yerləşdiyi Ünvan</label>
+                        <input [(ngModel)]="this.propertyLiabilityInsurance.address" type="text" placeholder="Ünvanı daxil edin" class="form-control" id="address"
+                         name="address">
+                    </div>
+
+                    <label for="carCertificateNumber">Fəaliyyət sahəsi</label>
+                    <div class="mb-3">
+                        <div class="form-check form-check-inline" (click)="selectMainPurpose()">
+                            <input [(ngModel)]="this.propertyLiabilityInsurance.propertyType" type="radio" name="option1" id="inlineRadio1" value="İnzibati bina">
+                            <label for="inlineRadio1">İnzibati bina</label>
+                        </div>
+                        <div class="form-check form-check-inline" (click)="selectOtherPurposes()">
+                            <input type="radio" name="option2" id="check"  value="option2">
+                            <label for="inlineRadio2">Digər</label>
+                        </div>  
+                    </div> 
+
+                    <div class="mb-3" [hidden]="this.otherPurposeSelected == false">
+                        <select [(ngModel)]="this.propertyLiabilityInsurance.propertyType" class="form-control" id="property_type" 
+                        name="property_type">
+                            <option value="İqtisadi fəaliyyət növü">İqtisadi fəaliyyət növü</option>
+                            <option value="Maliyyə və sığorta fəaliyyəti">Maliyyə və sığorta fəaliyyəti</option>
+                            <option value="Təhsil">Təhsil</option>
+                        </select>
+                    </div>
+
+                </form>
+
+                <button (click)="this.submitPLI()" (click)="proceedToNextForm()" class="btn btn-default">Davam et</button>
+
+            </div>
+
+            <div class="car-form-part" 
+             [ngClass]="{'form-selected': this.selectedFormNumber == 2}"
+             [ngClass]="{'form-not-selected': this.selectedFormNumber != 2}">
+                <small style="color: lightgray;">Mərhələ 2/3</small>
+
+                <form class="mb-3 row">
+                    <div class="mb-3">
+                        <div class="form-check form-check-inline" >
+                            <input [(ngModel)]="this.client.client_type" type="radio" name="client_type" id="inlineRadio1" value="1">
+                            <label for="inlineRadio1">Sahibkar</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input [(ngModel)]="this.client.client_type" type="radio" name="client_type" id="inlineRadio2"  value="2">
+                            <label for="inlineRadio2">Hüquqi şəxs</label>
+                        </div>  
+                        <input [(ngModel)]="this.client.ssn_number" type="text" placeholder="VÖEN-i daxil edin" class="form-control" id="ssn_number" name="ssn_number">
+                    </div>
+
+                    <div class="mb-3">
+                        <label  for="email">E-mail</label>
+                        <input [(ngModel)]="this.client.email" type="email" placeholder="example@gmail.com" class="form-control" id="email" name="email">
+                    </div> 
+                    <label class="form-label" for="phone">Mobil nömrə</label>
+                    <div class="mb-3 input-group">
+                        
+
+                        <span class="input-group-text">+994</span>
+                        <input [(ngModel)]="this.client.phone" type="number" placeholder="512345678" class="form-control" id="phone" name="phone">
+                    </div>  
+                </form>
+
+                <button [disabled]="!this.client.ssn_number" (click)="this.submitClient()" (click)="proceedToNextForm()" class="btn btn-default">Davam et</button>
+            </div>
+
+            <div class="car-form-part"  
+            [ngClass]="{'form-selected': this.selectedFormNumber == 3}"
+            [ngClass]="{'form-not-selected': this.selectedFormNumber != 3}">
+                <small style="color: lightgray;">Mərhələ 3/3</small>
+
+                <form class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="insuranceCompany">Sığorta şirkəti seçin</label>
+                        <select [(ngModel)]="this.selectedInsuranceCompany" class="form-control" id="insuranceCompany" name="insuranceCompany">
+                            <option value="Azərsığorta">Azərsığorta</option>
+                        </select>
+
+                    </div>
+ 
+                </form>
+
+                <button [disabled]="!this.selectedInsuranceCompany" (click)="submitForm()" class="btn btn-default">Bitir</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

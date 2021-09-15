@@ -1,0 +1,46 @@
+
+
+<header id="navbar" class="p-3 sticky-top bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a [routerLink]="['']" class="nav-link px-2 text-white">Əsas</a></li>
+          <li><a [routerLink]="['/insuranceTypes']" class="nav-link px-2 text-white">Sığorta növləri</a></li>
+          <li><a [routerLink]="['/faq']"  class="nav-link px-2 text-white">FAQ-lar</a></li>
+          <li><a [routerLink]="['/aboutUs']"  class="nav-link px-2 text-white">Haqqımızda</a></li>
+        </ul>
+
+
+        <ng-container *ngIf="this.client_id == null; then thenTemplate; else elseTemplate"></ng-container>
+        <ng-template #thenTemplate>
+          <div class="text-end">
+            <a [routerLink]="['/login']" class="btn btn-outline-light me-2">Daxil ol</a>
+            <a [routerLink]="['/register']" class="btn btn-success">Qeydiyyatdan keç</a>
+          </div>
+        </ng-template>
+        <ng-template #elseTemplate>
+          <div class="text-end">
+            <a [routerLink]="['/profile']" class="btn btn-outline-light me-2">Şəxsi kabinet</a>
+          </div>
+          <div class="text-end">
+            <a [routerLink]="['/logout']" class="btn btn-outline-light me-2">Çıxış</a>
+          </div>
+        </ng-template>
+        
+
+       
+      </div>
+    </div>
+  </header>
+
+
+  
+
+  
+  <router-outlet></router-outlet>
+
+
+  <footer class="py-3 my-4">
+    <p class="text-center text-muted">© 2021 Company, Inc</p>
+  </footer>

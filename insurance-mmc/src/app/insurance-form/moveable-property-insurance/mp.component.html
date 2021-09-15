@@ -1,0 +1,138 @@
+
+
+<div class="container" id="form">
+
+    <div  class="row">
+
+        <div class="col-12 form-info">
+            <h1>
+                Daşınan Əmlak Sığortası
+            </h1>
+            <small>Zəhmət olmasa, aşağıdakı formu doldurun.</small>
+        </div>
+       
+
+        <div class="form-left-side col-3">
+            
+            <ul>
+                <li (click)="selectForm(1)" [ngClass]="{'form-name-selected': this.selectedFormNumber == 1}">
+                    Əmlak məlumatları
+                </li>
+                <li (click)="selectForm(2)" [ngClass]="{'form-name-selected': this.selectedFormNumber == 2}">
+                    Sahibi haqqında məlumatlar
+                </li>
+                <li  (click)="selectForm(3)" [ngClass]="{'form-name-selected': this.selectedFormNumber == 3}">
+                    Sığorta şirkəti
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="form-right-side col-9">
+            <div  class="car-form-part"
+             [ngClass]="{'form-selected': this.selectedFormNumber == 1}" 
+             [ngClass]="{'form-not-selected': this.selectedFormNumber != 1}" >
+
+                <small style="color: lightgray;">Mərhələ 1/3</small>
+
+                <form  class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">Yerləşdiyi Ünvan</label>
+                        <input type="text" placeholder="Ünvanı daxil edin" class="form-control" id="carRegistrationNumber" name="carRegistrationNumber">
+                    </div>
+
+                    
+                    <div class="mb-3">
+                        <label for="carCertificateNumber">Fəaliyyət sahəsi</label>
+                        <input type="text" placeholder="Fəaliyyət sahəsini daxil edin" class="form-control" id="carRegistrationNumber" name="carRegistrationNumber">
+                    
+                    </div> 
+
+                    <div class="mb-3">
+                        <label for="propertyValue">Əmlak dəyəri AZN-lə</label>
+                        <input type="number" id="propertyValue" min=0 name="propertyValue" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="propertyValue">Əmlak növü</label>
+                        <input type="text" id="propertyType" placeholder="Mebel, telefon, televizor və s." name="propertyType" class="form-control">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="propertyValue">Saxlanma şəraiti</label>
+                        <input type="text" id="propertyType" placeholder="Anbar, açıq hava və s." name="propertyType" class="form-control">
+                    </div>
+
+                </form>
+
+                <button (click)="proceedToNextForm()" class="btn btn-default">Davam et</button>
+
+            </div>
+
+            <div class="car-form-part" 
+             [ngClass]="{'form-selected': this.selectedFormNumber == 2}"
+             [ngClass]="{'form-not-selected': this.selectedFormNumber != 2}">
+                <small style="color: lightgray;">Mərhələ 2/3</small>
+
+                <form class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">Sahibi</label>
+                        <div class="form-check form-check-inline" (click)="selectOwnerIsPerson()">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label  for="inlineRadio1">Fiziki şəxs</label>
+                        </div>
+                        <div class="form-check form-check-inline" (click)="selectOwnerIsCompany()">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2"  value="option2">
+                            <label for="inlineRadio2">Hüquqi şəxs</label>
+                        </div> 
+
+                        <div [hidden]="!this.ownerIsPerson">
+                            <label for="ownerFullName">Sahibinin adı və soyadı</label>
+                            <input type="text" id="ownerFullName" name="ownerFullName" class="form-control">
+                        </div>
+                        <div [hidden]="!this.ownerIsCompany">
+                            <label for="voen">Sahibinin VÖEN-i</label>
+                            <input type="text" id="voen" name="voen" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">E-mail</label>
+                        <input type="email" placeholder="example@gmail.com" class="form-control" id="carCertificateNumber" name="carRegistrationNumber">
+                    </div> 
+                    <div class="mb-3">
+                        <label for="carRegistrationNumber">Mobil nömrə</label>
+                        <input type="tel" placeholder="+994 11 222 33 44" class="form-control" id="engine" name="carRegistrationNumber">
+                    </div>  
+                </form>
+
+                <button (click)="proceedToNextForm()" class="btn btn-default">Davam et</button>
+            </div>
+
+            <div class="car-form-part"  
+            [ngClass]="{'form-selected': this.selectedFormNumber == 3}"
+            [ngClass]="{'form-not-selected': this.selectedFormNumber != 3}">
+                <small style="color: lightgray;">Mərhələ 3/3</small>
+
+                <form class="mb-3 row">
+                    <div class="mb-3">
+                        <label for="insuranceCompany">Sığorta şirkəti seçin</label>
+                        <select type=""  class="form-control" id="insuranceCompany" name="insuranceCompany">
+                            <option value="1">Azərsığorta</option>
+                            <option value="2">Paşa bank</option>
+                            <option value="3">Atəşgah</option>
+                        </select>
+
+                    </div>
+ 
+                </form>
+
+                <button (click)="submitForm()" class="btn btn-default">Bitir</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,142 @@
+
+
+<main role="main" [hidden]="!this.hideMainTable">
+  <span style="cursor: pointer;" (click)="this.backToMain()">
+    | Qayıt
+  </span>
+</main>
+<main role="main" [hidden]="this.hideMainTable">
+    
+  
+  
+    <table>
+      <tr>
+        <th>
+          Müştəri
+        </th>
+        <th>
+          Seçilmiş sığorta növü
+        </th>
+        <th>
+          Sığortanın seçilmə tarixi
+        </th>
+        <th>
+          Sığortanın ödənmə tarixi
+        </th>
+      </tr>
+      <tr *ngFor="let item of this.allOffers">
+        <td class="selectable">
+          <a (click)="selectedClient = item.clients" (click)="this.clientSelected()">{{ item.clients.id_number || item.clients.ssn_number }}</a>
+        </td>
+        <td class="selectable" (click)="this.insuranceSelected(item)">{{ this.getInsuranceType(item) }}</td>
+        <td>{{ item.date_offered | date }}</td>
+        <td>Odenmeyib</td>
+        <td>
+          <button class="btn btn-default">Sil</button>
+        </td>
+      </tr>
+    </table>
+  </main>
+
+
+  <main role="main" [hidden]="this.hideClientTable">
+
+    <table>
+      <tr>
+        <th>ŞV nömrəsi</th>
+        <th>Fin kod</th>
+        <th>Telefon nömrəsi</th>
+        <th>E-mail</th>
+        <th>VÖEN</th>
+        <th>Müştəri növü</th>
+        <th>Müştəri kodu</th>
+      </tr>
+      <tr>
+        <td>{{ this.selectedClient.id_number || '----'  }}</td>
+        <td>{{ this.selectedClient.fin_code || '----'  }}</td>
+        <td>{{ this.selectedClient.phone || '----'  }}</td>
+        <td>{{ this.selectedClient.email || '----' }}</td>
+        <td>{{ this.selectedClient.ssn_number || '----' }}</td>
+        <td>{{ this.selectedClient.client_type || '----' }}</td>
+        <td>{{ this.selectedClient.code || '----' }}</td>
+        
+      </tr>
+    </table>
+
+  </main>
+  
+  <main role="main" [hidden]="this.hideInsuranceTable">
+
+    <div [ngSwitch]="this.selectedInsuranceForm">
+    <ng-container *ngSwitchCase="'AVSSMIS'">
+      <table>
+        <tr>
+          <th>
+            Qeydiyyat nişanı
+          </th>
+          <th>
+            Şəhadətnamə nömrəsi
+          </th>
+        </tr>
+        <tr>
+          <td>
+            {{ this.selectedCarInsurance.car_plate_number }}
+          </td>
+          <td>
+            {{ this.selectedCarInsurance.car_registration_number }}
+          </td>
+        </tr>
+      </table>
+    </ng-container>
+    <ng-container *ngSwitchCase="'DƏİS'">
+      <table>
+        <tr>
+          <th>
+            Əmlak növü
+          </th>
+          <th>Şəhər</th>
+          <th>Mülkiyyət sənədi</th>
+          <th>Seria və nömrəsi (və ya digər)</th>
+          <th>Poçt indeksi</th>
+          <th>Ünvan</th>
+        </tr>
+        <tr>
+          <td>{{ this.selectedPropertyInsurance.property_type }}</td>
+          <td>{{ this.selectedPropertyInsurance.city }}</td>
+          <td>{{ this.selectedPropertyInsurance.ownership_doc }}</td>
+          <td>{{ this.selectedPropertyInsurance.series }}{{ this.selectedPropertyInsurance.number }}</td>
+          <td>{{ this.selectedPropertyInsurance.post_index }}</td>
+          <td>{{ this.selectedPropertyInsurance.address }}</td>
+        </tr>
+      </table>
+    </ng-container>
+    <ng-container *ngSwitchCase="'DƏMMİS'">
+      <table>
+        <tr>
+          <th>
+            Ünvan
+          </th>
+          <th>
+            Fəaliyyət sahəsi
+          </th>
+        </tr>
+        <tr>
+          <td>
+            {{ this.selectedPropertyLiabilityInsurance.address }}
+          </td>
+          <td>
+            {{ this.selectedPropertyLiabilityInsurance.propertyType }}
+          </td>
+        </tr>
+      </table>
+    </ng-container>
+    
+    <ng-container *ngSwitchDefault>
+    
+    </ng-container>
+  </div>
+
+  </main>
+
+  
+  

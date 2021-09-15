@@ -1,0 +1,115 @@
+<div class="container">
+
+    <div id="profile">
+        <div class="row profile-header">
+            <h1>
+                Xoş gəldiniz!
+            </h1>
+        </div>
+
+        <div class="row profile-info">
+            <div class="col-3 profile-left">
+                <ul>
+                    <li (click)="this.selectMenuItem(1)">
+                        Şəxsi məlumatlar
+                    </li>
+                    <li (click)="this.selectMenuItem(2)">
+                        Sığortalar
+                    </li>
+                </ul>
+            </div>
+            <div class="col-8">
+
+                <div  [hidden]="this.selectedMenuNumber != 1 " class="profile-infos">
+                    <div class="row">
+                        <h1>Şəxsi məlumatlarınız</h1></div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Ad</label>
+                            <input type="text" value="{{ this.client.first_name }}" class="form-control" id="lastName" placeholder="Adınızı daxil edin" value="" required="">
+                            <div class="invalid-feedback">
+                              Valid last name is required.
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Soyad</label>
+                            <input type="text" value="{{ this.client.last_name }}" class="form-control" id="lastName" placeholder="Soyadınızı daxil edin" value="" required="">
+                            <div class="invalid-feedback">
+                              Valid last name is required.
+                            </div>
+                          </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email<span class="text-muted"></span></label>
+                            <input type="email" disabled value="{{ this.client.email }}" class="form-control" id="email" placeholder="you@example.com">
+                            <div class="invalid-feedback">
+                              Please enter a valid email address for shipping updates.
+                            </div>
+                          </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="password">VÖEN</label>
+                            <input type="password" name="ssn_number" placeholder="VÖEN-i daxil edin" class="form-control" id="ssn_number" name="ssn_number">
+                        </div>
+                    </div>
+    
+                    
+                    <button type="button" class="btn btn-success">Yadda saxla</button>
+                    
+                </div>
+
+                <div [hidden]="this.selectedMenuNumber != 2 " class="profile-insurances">
+                    <section>
+                        <div class="row">
+
+                            <h1>Sığortalarınız</h1>
+                        </div>
+                        <div class="row filters">
+                            <button (click)="this.filterByInsuranceType(0)" [ngClass]="{'filter-active': this.filterValue == 0}">Icbari avto</button>
+                            <button (click)="this.filterByInsuranceType(1)" [ngClass]="{'filter-active': this.filterValue == 1}">Icbari əmlak</button>
+                            <button (click)="this.filterByInsuranceType(2)" [ngClass]="{'filter-active': this.filterValue == 2}">Icbari məsuliyyət</button>
+                            <button (click)="this.filterByInsuranceType(3)" [ngClass]="{'filter-active': this.filterValue == 3}">Yaşıl kart</button>
+                        </div>
+
+                        <div class="tbl-header">
+                          <table cellpadding="0" cellspacing="0" border="0">
+                            <thead>
+                              <tr>
+                                <th>Sığorta növü</th>
+                                <th>Seçilmiş sığorta şirkəti</th>
+                                <th>Sığortanın buraxılma tarixi</th>
+                                <th>Sığortanın ödənmə tarixi</th>
+                                <th>Yüklə</th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                        <div class="tbl-content">
+                          <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                              <tr *ngFor="let item of this.filteredOffers">
+                                <td>{{ this.getInsuranceType(item)  }}</td>
+                                <td>{{ item.insurance_company }} </td>
+                                <td>{{ item.date_offered | date }}</td>
+                                <td>{{ (item.date_signed | date) || "----" }}</td>
+                                <td>
+                                    <fa-icon *ngIf="item.date_signed" class="btn btn-success" [icon]="faDownload"></fa-icon>
+                                    <span *ngIf="!item.date_signed">----</span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </section>
+                      
+                </div>
+                
+             
+            </div>
+        </div>
+    </div>
+
+</div>
