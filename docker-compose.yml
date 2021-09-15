@@ -11,7 +11,7 @@ services:
     container_name: app_server
     build:
       args :
-        JAR_FILE: /build/libs/*.jar
+        JAR_FILE: /build/libs/insurance-0.0.1-SNAPSHOT.jar
       context: ./insurance 
       dockerfile:
         Dockerfile
