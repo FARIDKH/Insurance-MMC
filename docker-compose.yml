@@ -1,3 +1,6 @@
+
+
+
 version: '3.7'
 
 # Define services
@@ -5,7 +8,7 @@ services:
   # App backend service
   app_server:
   #   # Configuration for building the docker image for the backend service
-
+    container_name: app_server
     build:
       args :
         JAR_FILE: /build/libs/*.jar
@@ -13,7 +16,7 @@ services:
       dockerfile:
         Dockerfile
     ports:
-      - "8085:5432" 
+      - "8081:8085" 
     restart: always
     depends_on:
       - db # This service depends on mysql. Start that first.
@@ -31,7 +34,7 @@ services:
     build: ./insurance-mmc/insurance-mmc
     restart: always
     ports:
-      - 5001:80
+      - 4200:80
     volumes:
       - ./nginx.conf:/etc/nginx.conf:ro
 
@@ -40,13 +43,13 @@ services:
   db:
     image: mysql:latest
     ports:
-      - "6033:3306"
+      - "3306:6033"
     restart: always
     environment:
       MYSQL_DATABASE: 'InsuranceDB'
       MYSQL_PASSWORD: 'root'
       MYSQL_ROOT_PASSWORD: 'root'
-      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_HOST: '%' #Host '172.24.0.3' is not allowed to connect to this MySQL server
     networks:
       - backend
 
