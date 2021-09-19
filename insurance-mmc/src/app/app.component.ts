@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
 
-  public isCollapsed = false;
   title = 'insurance-mmc';
   client_id : any = null;
 
