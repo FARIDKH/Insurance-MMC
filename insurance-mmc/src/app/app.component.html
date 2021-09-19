@@ -1,7 +1,7 @@
 
 
 <header id="navbar" class="p-3 sticky-top bg-dark text-white">
-    <div class="container">
+    <div id="mainHeader" class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -32,6 +32,27 @@
        
       </div>
     </div>
+
+    <div id="mobileHeader">
+      
+      
+      <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <h5 class="text-white h4">Collapsed content</h5>
+          <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+      </div>
+    </div>
+
   </header>
 
 
