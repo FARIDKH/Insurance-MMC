@@ -16,11 +16,18 @@
           mb-2
           justify-content-center
           mb-md-0
+          align-items-center
         "
       >
-        <li>
+      <li >
+
+        <a [routerLink]="['']"  class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img  class="bi me-2" style="width: 75px; height: 32; border-radius: 20px;" src="/assets/images/shur-logos.jpeg" alt="">
+        </a>
+      </li>
+        <!-- <li>
           <a [routerLink]="['']" class="nav-link px-2 text-white">Əsas</a>
-        </li>
+        </li> -->
         <li>
           <a [routerLink]="['/insuranceTypes']" class="nav-link px-2 text-white"
             >Sığorta növləri</a
@@ -68,7 +75,10 @@
 
   <div id="mobileHeader">
     <div class="headerWrapper">
-      <div class="logo">Logo</div>
+      <div class="logo">
+        <img  class="bi me-2" style="width: 75px; height: 32; border-radius: 20px;" src="/assets/images/shur-logos.jpeg" alt="">
+        
+      </div>
       <nav class="navbar navbar-dark">
         <div class="container-fluid">
           <button

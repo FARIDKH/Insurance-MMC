@@ -21,10 +21,15 @@
     }
   }
 
+  img {
+      width: 150px;
+  }
+
   #mainHeader {
     display: block;
     @media screen and (max-width: 960px) {
       display: none;
+      
     }
   }
 

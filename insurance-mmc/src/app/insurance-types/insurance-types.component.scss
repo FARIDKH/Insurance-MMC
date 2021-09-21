@@ -3,12 +3,23 @@
 
 
 #features {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
     .feature {
-        margin:0 10px;
-        margin-top: 50px;
+
+        
+        margin: 50px 20px 0 0;
         border: 2px solid $purpleBlue;
         border-radius: 15px;
-        width: 400px;
+        width: 30%;
+        
+        @media screen and (max-width: 960px) {
+            width: 100%;
+            margin-right: 0;
+        }
+
         .feature-info {
             padding: 25px;
         }
