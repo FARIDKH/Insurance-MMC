@@ -54,7 +54,7 @@ public class UserAuthController {
 
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            user.getPhone(),
+                            user.getEmail(),
                             user.getPassword()
                     )
             );
@@ -72,7 +72,7 @@ public class UserAuthController {
         String jwt = jwtTokenProvider.generateJwtToken(authentication);
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
-        Long id = userRepository.findByPhone(userDetails.getUsername()).get().getId();
+        Long id = userRepository.findByEmail(userDetails.getUsername()).get().getId();
 
 //        JwtResponse jwtResponse = new JwtResponse(jwt,userDetails.getUsername(),id,userDetails.getAuthorities());
 
@@ -84,7 +84,7 @@ public class UserAuthController {
     public ResponseEntity loginUser(@RequestBody UserLogin userLogin){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        userLogin.getPhone(),
+                        userLogin.getEmail(),
                         userLogin.getPassword()
                 )
         );

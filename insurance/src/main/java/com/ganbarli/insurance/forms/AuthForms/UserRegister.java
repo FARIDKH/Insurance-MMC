@@ -12,7 +12,7 @@ public class UserRegister {
     private String lastName;
 
     @NotNull
-    private String phone;
+    private String email;
 
     @NotNull
     private String password;
@@ -44,12 +44,13 @@ public class UserRegister {
         this.lastName = lastName;
     }
 
-    public String getPhone() {
-        return phone;
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

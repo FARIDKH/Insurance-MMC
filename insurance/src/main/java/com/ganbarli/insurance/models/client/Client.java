@@ -3,6 +3,7 @@ package com.ganbarli.insurance.models.client;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.ganbarli.insurance.models.offer.Offer;
+import com.ganbarli.insurance.models.user.User;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -28,11 +29,21 @@ public class Client {
     private String id_number;
     private String fin_code;
 
+    @OneToOne
+    private User user;
+
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     @JsonBackReference
     private Set<Offer> offers;
 
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getId_number() {
         return id_number;

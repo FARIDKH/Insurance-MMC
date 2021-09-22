@@ -22,7 +22,7 @@ public class CustomerDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Optional<User> user = userService.getUserByPhone(username);
+        Optional<User> user = userService.getUserByEmail(username);
         if (user.isEmpty()){
             throw new UsernameNotFoundException("Email not found!");
         }

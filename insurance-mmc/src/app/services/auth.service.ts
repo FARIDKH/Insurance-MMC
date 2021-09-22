@@ -9,8 +9,8 @@ export class AuthService {
 
     constructor(private httpClient: HttpClient) { }
 
-    login(phone : String, password : String){
-        return this.httpClient.post(environment.host + "/userAuth/user/login",{phone,password});
+    login(email : String, password : String){
+        return this.httpClient.post(environment.host + "/userAuth/user/login",{email,password});
     }
 
 }

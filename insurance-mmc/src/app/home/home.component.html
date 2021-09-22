@@ -3,33 +3,24 @@
 
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
       <div class="col">
-        <div (click)="goToInsuranceForm(0)" class="insurance-card card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://stimg.cardekho.com/images/carexteriorimages/630x420/Lamborghini/Urus/4418/Lamborghini-Urus-V8/1621927166506/front-left-side-47.jpg');">
+        <div (click)="goToInsuranceForm(0)" class="insurance-card  card-cover h-100 overflow-hidden text-white bg-dark rounded-15 shadow-lg" style="border-radius:5px;background-image: url('https://stimg.cardekho.com/images/carexteriorimages/630x420/Lamborghini/Urus/4418/Lamborghini-Urus-V8/1621927166506/front-left-side-47.jpg');">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
             <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Maşın sığortası</h2>
-            <!-- <ul class="d-flex list-unstyled mt-auto">
-              <li class="d-flex align-items-center me-3">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                <small>Earth</small>
-              </li>
-              <li class="d-flex align-items-center">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                <small>3d</small>
-              </li>
-            </ul> -->
+
           </div>
         </div>
       </div>
 
       <div class="col">
-        <div class="insurance-card card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://erch2014.com/images/finansi/strahovaya-kompaniya-vtb-strahovanie-kasko-osobennosti-i-pravila_2.jpg');">
+        <div (click)="goToInsuranceForm(3)" class="insurance-card  card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="border-radius:5px;background-image: url('https://erch2014.com/images/finansi/strahovaya-kompaniya-vtb-strahovanie-kasko-osobennosti-i-pravila_2.jpg');">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Kasko sığorta</h2>
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Yaşıl kart</h2>
           </div>
         </div>
       </div>
 
       <div class="col">
-        <div (click)="goToInsuranceForm(2)" class="insurance-card card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://thumbnails-visually.netdna-ssl.com/home-insurance-london_5cac3f4863dd6_w450_h300.jpg');">
+        <div (click)="goToInsuranceForm(2)" class="insurance-card  card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="border-radius:5px;background-image: url('https://thumbnails-visually.netdna-ssl.com/home-insurance-london_5cac3f4863dd6_w450_h300.jpg');">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
             <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">İcbari Əmlak</h2>
           </div>
@@ -39,48 +30,61 @@
   </div>
 
 
-<div class="container px-4 py-5">
-	<h1>Müştərilərin görüşləri</h1>
-	
-	<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+  <div class="b-divider"></div>
+  <div class="insurance-info">
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img  src="/assets/images/insurance-options.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="1000" height="600">
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold lh-1 mb-3">Sığorta xidmətləri</h1>
+          <p class="lead">Onlayn şəkildə Avtomobil, Daşınmaz əmlak, Mülki məsuliyyət və Yaşıl kartın icbari sığortasını
+             təmin edirik. Hədəfimiz icbari və könüllü sığorta növlərini sizə onlayn, kampakt və sürətli şəkildə çatdırmaqdır.</p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a [routerLink]="['/insuranceTypes']" type="button" class="btn btn-primary btn-lg px-4 me-md-2">Sığorta növləri</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
 
-		<div class="col">
-			<div class="card" style="width: 25rem;">
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<a href="#" class="card-link">Card link</a>
-				</div>
-			</div>
-			
-		</div>
-		
+  <div class="container px-4 py-5" id="hanging-icons">
+    <div style="text-align: center;" class="row"><h1>Üstünlüklərimiz</h1></div>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <fa-icon [icon]="faClock"></fa-icon>
+        </div>
+        <div>
+          <h2>Sürətli</h2>
+          <p>
+            1 dəqiqədən az sürətdə icbari sığorta əldə etmək imkanı!
+            </p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          
+          <fa-icon [icon]="faUserShield"></fa-icon>
+        </div>
+        <div>
+          <h2>Etibarlı</h2>
+          <p>Məlumatlarımız onlayn  bazadan əldə edilir, tamamilə təhlükəsizdir! Və öz şəxsi kabinetinizdə sığortalarınızı yoxlaya bilərsiniz! </p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <fa-icon [icon]="faDotCircle"></fa-icon>
+        </div>
+        <div>
+          <h2>Sadə</h2>
+          <p>Sistemimiz istifadəçiyə ən rahat şəkildə sığorta təminatı verir və prosesi mümkün olduğu qədər sadələşdirir.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		<div class="col">
-			<div class="card" style="width: 25rem;">
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<a href="#" class="card-link">Card link</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="col">
-			<div class="card" style="width: 25rem;">
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<a href="#" class="card-link">Card link</a>
-				</div>
-			</div>
-		</div>
-		
-		
-	</div>
-	
-
-</div>
+  <div class="b-divider"></div>

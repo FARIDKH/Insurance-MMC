@@ -59,6 +59,10 @@ export class HouseInsuranceComponent implements OnInit {
                 this.formSubmitted = false;
             }, 2000);
         })
+
+        this.selectedFormNumber = 1
+        this.propertyInsurance = new PropertyInsurance()
+        this.client = new Client()
     }
 
 }

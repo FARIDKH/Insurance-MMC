@@ -57,6 +57,7 @@ export class GreenCardInsuranceComponent implements OnInit {
     submitClientForm(){
         this.clientService.create(this.client).subscribe((c) => {
             this.client.id = c.id
+            console.log(c)
         })
     }
 

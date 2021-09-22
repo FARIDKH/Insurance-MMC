@@ -1,41 +1,66 @@
-
 @import "../../styles.scss";
 
+#features {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
-.feature {
-    margin:0 10px;
-    margin-top: 50px;
-    border: 2px solid $purpleBlue;
-    border-radius: 15px;
-    width: 400px;
-    .feature-info {
-        padding: 25px;
-    }
-    h2{
-        text-align: center;
-    }
+    .feature {
+
+        
+        margin: 50px 20px 0 0;
+        border: 2px solid $purpleBlue;
+        border-radius: 15px;
+        width: 30%;
+        
+        @media screen and (max-width: 960px) {
+            width: 100%;
+            margin-right: 0;
+        }
+
+        .feature-info {
+            padding: 25px;
+        }
+        h2{
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+        }
+
+        p {
+            text-align: justify;
+        }
+
 
     a {
-        display: block;
-        text-align: center;
+      display: block;
+      text-align: center;
     }
 
     p {
-        text-align: justify;
+      text-align: justify;
     }
-
 
     .feature-icon {
-        fa-icon{
-            color: white;
-            background-color: $purpleBlue ;
-            padding:15px  25px;
-            font-size: 24px;
-            border-radius: 20px;
-        }
-        text-align: center;
-    
-        margin-bottom: 25px;
-    }
+      fa-icon {
+        color: white;
+        background-color: $purpleBlue;
+        padding: 15px 25px;
+        font-size: 24px;
+        border-radius: 20px;
+      }
+      text-align: center;
 
+      margin-bottom: 25px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+    align-content: center;
+    padding: 1.5rem;
+  }
 }

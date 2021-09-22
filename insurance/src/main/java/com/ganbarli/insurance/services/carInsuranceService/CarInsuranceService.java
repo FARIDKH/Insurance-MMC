@@ -4,6 +4,7 @@ package com.ganbarli.insurance.services.carInsuranceService;
 import com.ganbarli.insurance.repositories.carInsuranceRepository.CarInsuranceRepository;
 import com.ganbarli.insurance.forms.CarInsuranceForm.CarInsuranceForm;
 import com.ganbarli.insurance.models.car_insurance.CarInsurance;
+import com.ganbarli.insurance.services.emailService.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class CarInsuranceService {
 
     @Autowired
     private CarInsuranceRepository carInsuranceRepository;
+
 
     public List<CarInsurance> getAllCarInsurances(){
         return carInsuranceRepository.findAll();

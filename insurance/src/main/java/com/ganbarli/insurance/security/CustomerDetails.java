@@ -25,7 +25,7 @@ public class CustomerDetails implements UserDetails {
 
     public CustomerDetails(User user){
         this.id = user.getId();
-        this.username = user.getPhone();
+        this.username = user.getEmail();
         this.password = user.getPassword();
         this.client_id = user.getClient_id();
     }

@@ -1,6 +1,6 @@
 
 <div id="overlay" [ngClass]="{'hidden': !this.formSubmitted}">
-    <div class="msg msg-alert z-depth-3"  >Sığorta uğurla yaradıldı!</div>
+    <div class="msg msg-alert z-depth-3"  >Sığorta uğurla yaradıldı. Zəhmət olmasa mailinizi yoxlayın! </div>
 </div>
 <div class="container" id="form">
 
@@ -109,6 +109,10 @@
 
                         <span class="input-group-text">+994</span>
                         <input [(ngModel)]="this.client.phone" type="number" placeholder="512345678" class="form-control" id="phone" name="phone">
+                    </div>  
+                    <div class="mb-3">
+                        <label for="phone">E-mail</label>
+                        <input [(ngModel)]="this.client.email" type="email" placeholder="example@gmail.com" class="form-control" id="email" name="email">
                     </div>  
                 </form>
 

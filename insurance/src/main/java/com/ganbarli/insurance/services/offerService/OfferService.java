@@ -11,6 +11,7 @@ import com.ganbarli.insurance.models.property_liability_insurance.PropertyLiabil
 import com.ganbarli.insurance.repositories.OfferRepository.OffersRepository;
 import com.ganbarli.insurance.repositories.clientRepository.ClientRepository;
 import com.ganbarli.insurance.services.carInsuranceService.CarInsuranceService;
+import com.ganbarli.insurance.services.emailService.EmailService;
 import com.ganbarli.insurance.services.greenCardService.GreenCardService;
 import com.ganbarli.insurance.services.propertyInsuranceService.PropertyInsuranceService;
 import com.ganbarli.insurance.services.propertyLiabilityService.PropertyLiabilityInsuranceService;
@@ -42,10 +43,12 @@ public class OfferService {
     @Autowired
     private PropertyLiabilityInsuranceService propertyLiabilityInsuranceService;
 
+    @Autowired
+    private EmailService emailService;
+
     public Offer createOffer(OfferForm offerForm){
         Offer offer = new Offer();
         Client client = clientRepository.findById(offerForm.getClient_id()).get();
-        System.out.println(client.toString());
         offer.setClients(client);
         offer.setInsurance_company(offerForm.getInsurance_company());
         offer.setDate_offered(new Date(System.currentTimeMillis()));
@@ -70,7 +73,8 @@ public class OfferService {
         }
 
         offer = offersRepository.save(offer);
-
+        String msg = "Şur Sığorta Agentliyindən istifadə etdiyiniz üçün təşəkkür edirik. Sizin istifadəçi kodunuz :" + offer.getClients().getCode();
+        emailService.sendSimpleMessage(offer.getClients().getEmail(),"Istifadəçi kodunuz",msg);
         return offer;
     }
 
