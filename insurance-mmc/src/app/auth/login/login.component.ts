@@ -15,18 +15,17 @@ export class LoginComponent implements OnInit {
         private router : Router,
         private authService :AuthService) { }
 
-    phone : String = ""
+    email : String = ""
     password : String =  ""
 
     ngOnInit(): void {
         localStorage.setItem("CLIENT_ID",'')
-     }
+    }
 
     submitLogin(){
-        this.authService.login(this.phone,this.password).subscribe((c) => {
+        this.authService.login(this.email,this.password).subscribe((c) => {
             localStorage.setItem("CLIENT_ID", Object(c)["client_id"])
                 this.router.navigate(['/profile'])
-            
         })
     }
 }

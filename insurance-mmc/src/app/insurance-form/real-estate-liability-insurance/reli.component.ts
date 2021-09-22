@@ -66,6 +66,10 @@ export class ReliComponent implements OnInit {
                 this.formSubmitted = false;
             }, 2000);
         })
+
+        this.selectedFormNumber = 1
+        this.propertyLiabilityInsurance = new PropertyLiabilityInsurance()
+        this.client = new Client()
     }
 
     selectOtherPurposes() {

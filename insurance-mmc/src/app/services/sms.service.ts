@@ -15,7 +15,9 @@ export class SMSService {
     send(client : Client, offer : Offer){
         let sms = new SMS()
         sms.to = client.phone
-        sms.message = "Hörmətli vətəndaş, sizin sığorta kodunuz xxxx. Zəhmət olmasa 1 gün ərzində bu kodla ödəniş edin. Təşəkkürlər."
+        sms.message = "Hörmətli vətəndaş,"+
+        " sizin sığorta kodunuz xxxx. Zəhmət olmasa 1 gün ərzində bu kodla ödəniş edin. Istifadəçi kodunuz : " + client.code +
+        "  Təşəkkürlər."
         return this.httpClient.post(environment.host + "/public/sms",sms);
     }
 

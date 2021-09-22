@@ -53,9 +53,9 @@
           <a [routerLink]="['/login']" class="btn btn-outline-light me-2"
             >Daxil ol</a
           >
-          <a [routerLink]="['/register']" class="btn btn-success"
+          <!-- <a [routerLink]="['/register']" class="btn btn-success"
             >Qeydiyyatdan keç</a
-          >
+          > -->
         </div>
       </ng-template>
       <ng-template #elseTemplate>
@@ -76,7 +76,10 @@
   <div id="mobileHeader">
     <div class="headerWrapper">
       <div class="logo">
-        <img  class="bi me-2" style="width: 75px; height: 32; border-radius: 20px;" src="/assets/images/shur-logos.jpeg" alt="">
+        <a [routerLink]="['']"  class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img  class="bi me-2" style="width: 75px; height: 32; border-radius: 20px;" src="/assets/images/shur-logos.jpeg" alt="">
+
+        </a>
         
       </div>
       <nav class="navbar navbar-dark">
@@ -139,9 +142,9 @@
             <a [routerLink]="['/login']" class="btn btn-outline-light me-2"
               >Daxil ol</a
             >
-            <a [routerLink]="['/register']" class="btn btn-success"
+            <!-- <a [routerLink]="['/register']" class="btn btn-success"
               >Qeydiyyatdan keç</a
-            >
+            > -->
           </div>
         </ng-template>
         <ng-template #elseTemplateMobile>
@@ -162,5 +165,5 @@
 <router-outlet></router-outlet>
 
 <footer class="py-3 my-4">
-  <p class="text-center text-muted">© 2021 Company, Inc</p>
+  <p class="text-center text-muted">© 2021 Şur Sığorta Agentliyi</p>
 </footer>

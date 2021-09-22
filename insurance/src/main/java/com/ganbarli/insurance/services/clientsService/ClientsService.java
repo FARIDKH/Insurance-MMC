@@ -40,43 +40,48 @@ public class ClientsService {
 
     public Client create(ClientsForm clientsForm){
         Client client = new Client();
-        String phone = clientsForm.getPhone();
-        if (!clientRepository.findByPhone(phone).isEmpty()){
-            client = clientRepository.findByPhone(phone).get();
-        }
+        User user = new User();
 
+        if (!clientRepository.findByEmail(clientsForm.getEmail()).isEmpty()){
+            client = clientRepository.findByEmail(clientsForm.getEmail()).get();
+        }
 
         client.setClient_type(clientsForm.getClient_type());
         if(clientsForm.getClient_type() == Client_Type.COMPANY ){
             client.setSsn_number(clientsForm.getSsn_number());
-            client.setCode("CP!" + UUID.randomUUID().toString());
         }else if(clientsForm.getClient_type() == Client_Type.ENTREPRENEUR ){
             client.setSsn_number(clientsForm.getSsn_number());
-            client.setCode("E!" + UUID.randomUUID().toString());
         } else if(clientsForm.getClient_type() == Client_Type.INDIVIDUAL ){
             client.setId_number(clientsForm.getId_number());
             client.setFin_code(clientsForm.getFin_code());
             client.setFirst_name(clientsForm.getFirst_name());
             client.setLast_name(clientsForm.getLast_name());
         }
-        client.setAddress(clientsForm.getAddress());
+        client.setAddress(clientsForm.getAddress()); 
         client.setEmail(clientsForm.getEmail());
         client.setPhone(clientsForm.getPhone());
         client = clientRepository.save(client);
 
         UserRegister userRegister = new UserRegister();
-        userRegister.setPhone(phone);
+        userRegister.setEmail(clientsForm.getEmail());
         Random rnd = new Random();
         int number = rnd.nextInt(999999);
         String x =  String.format("%06d", number);
         userRegister.setPassword(x);
         userRegister.setClient_id(client.getId());
-        client.setCode(x);
         try {
-            userService.registerNewUserAccount(userRegister);
+            if (!clientRepository.findByEmail(client.getEmail()).isEmpty()){
+                user = userService.registerNewUserAccount(userRegister);
+                client.setCode(x);
+            } else {
+                user = userService.getUserByID(client.getUser().getId()).get();
+            }
+            client.setUser(user);
         } catch (UserAlreadyExistException e) {
             System.out.println(e.getMessage());
         }
+
+        client = clientRepository.save(client);
 
         return client;
     }

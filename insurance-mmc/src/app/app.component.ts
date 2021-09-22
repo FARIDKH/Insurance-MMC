@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem("CLIENT_ID") != ''){
       this.client_id = localStorage.getItem("CLIENT_ID")
-    }
+    } 
   }
   
 
