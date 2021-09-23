@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/")
-@CrossOrigin(origins = "http://185.43.190.108", maxAge = 3600)
 public class GreenCardInsuranceController {
 
     @Autowired
