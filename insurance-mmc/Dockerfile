@@ -15,6 +15,8 @@ RUN npm run build -- --output-path=./dist/out --configuration $configuration
 
 FROM nginx:1.15
 
+
+
 COPY --from=build /app/dist/out/ /usr/share/nginx/html
 
 
