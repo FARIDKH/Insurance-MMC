@@ -14,7 +14,6 @@ import java.util.Set;
 @RestController
 @RequestMapping("/api")
 
-@CrossOrigin(origins = "http://185.43.190.108:4200", maxAge = 3600)
 public class ClientsController {
 
 
