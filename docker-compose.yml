@@ -13,10 +13,9 @@ services:
       args :
         JAR_FILE: /build/libs/insurance-0.0.1-SNAPSHOT.jar
       context: ./insurance 
-      dockerfile:
-        Dockerfile
+      dockerfile: Dockerfile
     ports:
-      - "8080:8085" 
+      - "8085:8080"
     restart: always
     depends_on:
       - db # This service depends on mysql. Start that first.
@@ -43,13 +42,14 @@ services:
   db:
     image: mysql:latest
     ports:
-      - "3306:6033"
+      - "3310:6033"
     restart: always
     environment:
       MYSQL_DATABASE: 'InsuranceDB'
-      MYSQL_PASSWORD: 'myuser'
-      MYSQL_ROOT_PASSWORD: 'pass'
-      MYSQL_ROOT_HOST: '%' #Host '172.24.0.3' is not allowed to connect to this MySQL server
+      MYSQL_USER: 'myuser'
+      MYSQL_PASSWORD: 'pass'
+      MYSQL_ROOT_PASSWORD: 'adminadmin'
+      MYSQL_ROOT_HOST: 'localhost' #Host '172.24.0.3' is not allowed to connect to this MySQL server
     networks:
       - backend
 

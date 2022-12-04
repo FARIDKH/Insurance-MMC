@@ -1,6 +1,7 @@
 #### Stage 1: Build the angular application
 FROM node:latest as build
  
+
 WORKDIR /app
 
 COPY package*.json /app/
@@ -11,9 +12,10 @@ COPY ./ /app/
 
 ARG configuration=production
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build -- --output-path=./dist/out --configuration $configuration
 
-FROM nginx:1.15
+FROM nginx:1.18
 
 
 
