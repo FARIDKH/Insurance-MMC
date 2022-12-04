@@ -1,0 +1,20 @@
+2022-12-04 23:23:53.279 CET [44590] LOG:  starting PostgreSQL 14.6 (Homebrew) on x86_64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.202), 64-bit
+2022-12-04 23:23:53.281 CET [44590] LOG:  listening on IPv6 address "::1", port 5432
+2022-12-04 23:23:53.281 CET [44590] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-12-04 23:23:53.283 CET [44590] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-12-04 23:23:53.288 CET [44591] LOG:  database system was shut down at 2022-12-04 23:23:49 CET
+2022-12-04 23:23:53.295 CET [44590] LOG:  database system is ready to accept connections
+2022-12-04 23:23:55.926 CET [44604] FATAL:  database "faridganbarli" does not exist
+2022-12-04 23:24:12.930 CET [44624] FATAL:  database "faridganbarli" does not exist
+2022-12-04 23:24:17.588 CET [44630] FATAL:  role "myuser" does not exist
+2022-12-04 23:24:19.634 CET [44632] FATAL:  role "myuser" does not exist
+2022-12-04 23:25:21.181 CET [45741] FATAL:  database "faridganbarli" does not exist
+2022-12-04 23:40:21.976 CET [47036] FATAL:  database "faridganbarli" does not exist
+2022-12-04 23:40:58.567 CET [47074] FATAL:  role "myuser" does not exist
+2022-12-04 23:41:00.617 CET [47077] FATAL:  role "myuser" does not exist
+2022-12-04 23:42:20.300 CET [47161] FATAL:  database "faridganbarli" does not exist
+2022-12-04 23:44:05.775 CET [47450] FATAL:  database "faridganbarli" does not exist
+2022-12-04 23:45:31.259 CET [44590] LOG:  received smart shutdown request
+2022-12-04 23:45:31.264 CET [44590] LOG:  background worker "logical replication launcher" (PID 44597) exited with exit code 1
+2022-12-04 23:45:31.265 CET [44592] LOG:  shutting down
+2022-12-04 23:45:31.284 CET [44590] LOG:  database system is shut down
